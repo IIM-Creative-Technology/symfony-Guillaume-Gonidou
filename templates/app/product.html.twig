@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AppController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    <div class="example-wrapper">
+        <h2>{{ product.name }}</h2>
+        <a href="{{ path('app_index') }}">Return to index</a>
+        <p>{{ product.description }}</p>
+        <p>{{ product.prix}}€</p>
+        <p>{{ product.stock }} en stock</p>
+        <form action="{{ path('app_cart') }}" method="post">
+            <input type="hidden" name="product" value="{{ product.id }}">
+            <input type="number" name="quantity" value="1">
+            <input type="submit" value="Add to cart">
+        </form>
+    </div>
+</div>
+{% endblock %}
